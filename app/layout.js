@@ -19,11 +19,7 @@ export default async function RootLayout({ children }) {
 
   return (
     <html lang="en" suppressHydrationWarning>
-      <ClerkProvider
-        appearance={{
-          baseTheme: dark,
-        }}
-      >
+     <ClerkProvider appearance={{ baseTheme: dark }}>
         <head>
           <link rel="icon" href="/logo.png" sizes="any" />
         </head>
