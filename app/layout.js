@@ -5,6 +5,7 @@ import { Toaster } from "sonner";
 import Header from "../components/header";
 import { ThemeProvider } from "../components/theme-provider";
 import { dark } from "@clerk/themes";
+import { checkUser } from "../lib/checkUser"; // Import checkUser here
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,7 +14,9 @@ export const metadata = {
   description: "",
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const user = await checkUser(); // Fetch user data on the server
+
   return (
     <html lang="en" suppressHydrationWarning>
       <ClerkProvider
@@ -31,10 +34,9 @@ export default function RootLayout({ children }) {
             enableSystem
             disableTransitionOnChange
           >
-            <Header />
+            <Header user={user} /> {/* Pass user data to Header */}
             <main className="min-h-screen">{children}</main>
             <Toaster richColors />
-
             <footer className="bg-muted/50 py-12">
               <div className="container mx-auto px-4 text-center text-gray-200">
                 <p>Made with 💗 by RoadsideCoder</p>
