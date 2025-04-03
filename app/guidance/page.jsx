@@ -5,7 +5,6 @@ import dynamic from "next/dynamic";
 
 const Peer = dynamic(() => import("peerjs"), { ssr: false });
 
-// Hardcoded mentors list (Can be fetched from DB)
 const mentors = [
   { id: "mentor1", name: "Vrinda", linkedin: "https://www.linkedin.com/in/vrinda-bindal-55b645349/" },
   { id: "mentor2", name: "Ravi", linkedin: "https://www.linkedin.com/in/ravi-beniwal-342906274/" },
@@ -15,8 +14,8 @@ const mentors = [
 export default function VideoCall() {
   const localVideoRef = useRef(null);
   const remoteVideoRef = useRef(null);
-  const [peerId, setPeerId] = useState("");  // User's own Peer ID
-  const [otherPeerId, setOtherPeerId] = useState(""); // ID to call
+  const [peerId, setPeerId] = useState("");
+  const [otherPeerId, setOtherPeerId] = useState("");
   const peerInstance = useRef(null);
 
   useEffect(() => {
@@ -57,35 +56,42 @@ export default function VideoCall() {
   };
 
   return (
-    <div style={{ textAlign: "center", padding: "20px" }}>
-      <h1>🎥 Mentor-User Video Call</h1>
-      <h3>Your Peer ID: <b>{peerId}</b></h3>
-      <p>🔗 Share this ID to receive calls</p>
+    <div className="text-center p-6">
+      <h1 className="text-3xl font-bold mb-4">🎥 Mentor-User Video Call</h1>
+      <h3 className="text-xl font-semibold">Your Peer ID: <b>{peerId}</b></h3>
+      <p className="text-gray-600">🔗 Share this ID to receive calls</p>
 
-      <h2>🔹 Connect to a Mentor/User</h2>
+      <h2 className="text-2xl font-semibold mt-6">🔹 Connect to a Mentor/User</h2>
       <input 
         type="text" 
         placeholder="Enter Peer ID to call" 
         value={otherPeerId} 
         onChange={(e) => setOtherPeerId(e.target.value)} 
-        style={{ padding: "10px", margin: "10px", width: "300px" }}
+        className="p-2 m-3 w-80 border rounded-md"
       />
       <button 
         onClick={startCall} 
-        style={{ padding: "10px", cursor: "pointer", background: "green", color: "white", border: "none", borderRadius: "5px" }}
+        className="p-2 bg-green-500 text-white font-semibold rounded-md hover:bg-green-600"
       >
         📞 Start Call
       </button>
 
-      <h2>🔹 Available Mentors</h2>
-      <ul style={{ listStyleType: "none", padding: 0 }}>
+      <h2 className="text-2xl font-semibold mt-6">🔹 Available Mentors</h2>
+      <ul className="flex flex-wrap justify-center gap-4 mt-4">
         {mentors.map((mentor) => (
-          <li key={mentor.id} style={{ marginBottom: "15px", padding: "10px", border: "1px solid gray", borderRadius: "10px", display: "inline-block", width: "300px" }}>
-            <h3>{mentor.name}</h3>
-            <a href={mentor.linkedin} target="_blank" rel="noopener noreferrer" style={{ color: "blue", textDecoration: "none", display: "block", marginBottom: "10px" }}>🔗 LinkedIn</a>
+          <li key={mentor.id} className="p-4 border rounded-lg shadow-lg w-80 text-center">
+            <h3 className="text-xl font-bold">{mentor.name}</h3>
+            <a 
+              href={mentor.linkedin} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-blue-500 hover:underline block mt-2 mb-3"
+            >
+              🔗 LinkedIn
+            </a>
             <button 
               onClick={() => setOtherPeerId(mentor.id)} 
-              style={{ padding: "10px", cursor: "pointer", background: "blue", color: "white", border: "none", borderRadius: "5px" }}
+              className="p-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600"
             >
               📞 Copy ID to Call
             </button>
@@ -93,10 +99,12 @@ export default function VideoCall() {
         ))}
       </ul>
 
-      <div style={{ marginTop: "20px" }}>
-        <h2>📹 Video Call</h2>
-        <video ref={localVideoRef} autoPlay playsInline muted style={{ width: "45%", border: "1px solid black" }} />
-        <video ref={remoteVideoRef} autoPlay playsInline style={{ width: "45%", border: "1px solid black" }} />
+      <div className="mt-6">
+        <h2 className="text-2xl font-semibold">📹 Video Call</h2>
+        <div className="flex justify-center gap-4 mt-4">
+          <video ref={localVideoRef} autoPlay playsInline muted className="w-1/2 border rounded-lg" />
+          <video ref={remoteVideoRef} autoPlay playsInline className="w-1/2 border rounded-lg" />
+        </div>
       </div>
     </div>
   );
