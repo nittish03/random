@@ -49,7 +49,7 @@ const Header = ({ user }) => {
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button className="flex items-center gap-2">
-                  <div className="border-2 p-1 rounded-sm flex  justify-center items-center gap-2 hover:text-black hover:bg-white transition-all duration-300">
+                  <div className="border-2 p-1 rounded-sm flex  justify-center items-center  gap-2 hover:text-black hover:bg-white transition-all duration-300">
 
                   <StarsIcon className="h-4 w-4" />
                   <span className="hidden md:block ">Growth Tools</span>
