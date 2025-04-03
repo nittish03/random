@@ -21,7 +21,6 @@ export default async function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning>
       <ClerkProvider appearance={{ baseTheme: dark }}>
         <head>
-          <link rel="icon" href="/logo.png" sizes="any" />
         </head>
         <body className={`${inter.className} dark:bg-[#121212] text-gray-300`}>
           <ThemeProvider
