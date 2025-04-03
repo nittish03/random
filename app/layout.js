@@ -11,7 +11,7 @@ import ParticleBackground from "../components/ParticleBackground";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "AI Career Coach",
+  title: "WorkWise",
   description: "",
 };
 
