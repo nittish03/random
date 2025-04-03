@@ -5,7 +5,6 @@ import dynamic from "next/dynamic";
 
 const Peer = dynamic(() => import("peerjs"), { ssr: false });
 
-// Hardcoded mentors list (Can be fetched from DB)
 const mentors = [
   { id: "mentor1", name: "Vrinda", linkedin: "https://www.linkedin.com/in/vrinda-bindal-55b645349/" },
   { id: "mentor2", name: "Ravi", linkedin: "https://www.linkedin.com/in/ravi-beniwal-342906274/" },
@@ -15,8 +14,8 @@ const mentors = [
 export default function VideoCall() {
   const localVideoRef = useRef(null);
   const remoteVideoRef = useRef(null);
-  const [peerId, setPeerId] = useState("");  // User's own Peer ID
-  const [otherPeerId, setOtherPeerId] = useState(""); // ID to call
+  const [peerId, setPeerId] = useState("");
+  const [otherPeerId, setOtherPeerId] = useState("");
   const peerInstance = useRef(null);
   const connRef = useRef(null);
   const [messages, setMessages] = useState([]);
@@ -53,19 +52,6 @@ export default function VideoCall() {
     initializePeer();
   }, []);
 
-  const startCall = async () => {
-    if (!otherPeerId) return alert("Enter a valid Peer ID!");
-
-    const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
-    localVideoRef.current.srcObject = stream;
-
-    const call = peerInstance.current.call(otherPeerId, stream);
-
-    call.on("stream", (remoteStream) => {
-      remoteVideoRef.current.srcObject = remoteStream;
-    });
-  };
-
   const connectToPeer = () => {
     if (!otherPeerId) return alert("Enter a valid Peer ID!");
     const conn = peerInstance.current.connect(otherPeerId);
@@ -84,41 +70,42 @@ export default function VideoCall() {
   };
 
   return (
-    <div style={{ textAlign: "center", padding: "200px" }}>
-      <h1>🎥 Mentor-User Video Call</h1>
-      <h3>Your Peer ID: <b>{peerId}</b></h3>
-      <p>🔗 Share this ID to receive calls</p>
+    <div className="min-h-screen bg-black mt-18 text-white flex flex-col items-center justify-center p-8">
+      <h1 className="text-3xl font-bold mb-4">🎥 Mentor-User Video Call</h1>
+      <h3 className="text-lg mb-2">Your Peer ID: <b className="text-blue-400">{peerId}</b></h3>
+      <p className="text-gray-400 mb-6">🔗 Share this ID to receive calls</p>
 
-      <h2>🔹 Connect to a Mentor/User</h2>
+      <h2 className="text-xl mb-2">🔹 Connect to a Mentor/User</h2>
       <input 
         type="text" 
         placeholder="Enter Peer ID to call/chat" 
         value={otherPeerId} 
         onChange={(e) => setOtherPeerId(e.target.value)} 
-        style={{ padding: "10px", margin: "10px", width: "300px" }}
+        className="p-2 w-80 text-black rounded-md mb-4"
       />
-      {/* <button 
-        onClick={startCall} 
-        style={{ padding: "10px", cursor: "pointer", background: "green", color: "white", border: "none", borderRadius: "5px" }}
-      >
-        📞 Start Call
-      </button> */}
       <button 
         onClick={connectToPeer} 
-        style={{ padding: "10px", cursor: "pointer", background: "blue", color: "white", border: "none", borderRadius: "5px", marginLeft: "10px" }}
+        className="p-2 bg-blue-600 hover:bg-blue-500 text-white rounded-md"
       >
         💬 Start Chat
       </button>
 
-      <h2>🔹 Available Mentors</h2>
-      <ul style={{ listStyleType: "none", padding: 0 }}>
+      <h2 className="text-xl mt-6">🔹 Available Mentors</h2>
+      <ul className="flex flex-wrap justify-center gap-4 mt-4">
         {mentors.map((mentor) => (
-          <li key={mentor.id} style={{ marginBottom: "15px", padding: "10px", border: "1px solid gray", borderRadius: "10px", display: "inline-block", width: "300px" }}>
-            <h3>{mentor.name}</h3>
-            <a href={mentor.linkedin} target="_blank" rel="noopener noreferrer" style={{ color: "blue", textDecoration: "none", display: "block", marginBottom: "10px" }}>🔗 LinkedIn</a>
+          <li key={mentor.id} className="p-4 border border-gray-600 rounded-lg w-64 text-center">
+            <h3 className="text-lg font-semibold">{mentor.name}</h3>
+            <a 
+              href={mentor.linkedin} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-blue-400 underline block mb-2"
+            >
+              🔗 LinkedIn
+            </a>
             <button 
               onClick={() => setOtherPeerId(mentor.id)} 
-              style={{ padding: "10px", cursor: "pointer", background: "blue", color: "white", border: "none", borderRadius: "5px" }}
+              className="p-2 bg-green-600 hover:bg-green-500 text-white rounded-md"
             >
               📞 Copy ID to Call
             </button>
@@ -126,27 +113,29 @@ export default function VideoCall() {
         ))}
       </ul>
 
-      <h2>💬 Chat</h2>
-      <div style={{ maxWidth: "500px", margin: "0 auto", textAlign: "left", border: "1px solid gray", padding: "10px", borderRadius: "10px" }}>
-        <div style={{ minHeight: "150px", maxHeight: "300px", overflowY: "auto", borderBottom: "1px solid gray", paddingBottom: "10px", marginBottom: "10px" }}>
+      <h2 className="text-xl mt-8">💬 Chat</h2>
+      <div className="w-96 bg-gray-900 p-4 rounded-md mt-4">
+        <div className="h-40 overflow-y-auto border-b border-gray-700 p-2 mb-4">
           {messages.map((msg, index) => (
             <p key={index}><b>{msg.sender}:</b> {msg.text}</p>
           ))}
         </div>
-        <input 
-          type="text" 
-          value={message} 
-          onChange={(e) => setMessage(e.target.value)} 
-          placeholder="Type a message..." 
-          style={{ width: "80%", padding: "8px", marginRight: "10px" }}
-        />
-        <button 
-          onClick={sendMessage} 
-          style={{ padding: "8px", cursor: "pointer", background: "blue", color: "white", border: "none", borderRadius: "5px" }}
-        >
-          ➤ Send
-        </button>
+        <div className="flex">
+          <input 
+            type="text" 
+            value={message} 
+            onChange={(e) => setMessage(e.target.value)} 
+            placeholder="Type a message..." 
+            className="flex-grow p-2 text-white rounded-md"
+          />
+          <button 
+            onClick={sendMessage} 
+            className="ml-2 p-2 bg-blue-600 hover:bg-blue-500 text-white rounded-md"
+          >
+            ➤ Send
+          </button>
+        </div>
       </div>
-   </div>
+    </div>
   );
 }
