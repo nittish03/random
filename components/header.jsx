@@ -18,14 +18,15 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "../components/ui/dropdown-menu";
-import Image from "next/image";
+
 
 const Header = ({ user }) => {
   return (
     <header className="fixed top-0 w-full border-b bg-background/80 backdrop-blur-md z-50 supports-[backdrop-filter]:bg-background/60">
       <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
         <Link href="/">
-<h1 className="font-bold text-4xl text-white">WorkWise</h1>
+        <h1 className="font-bold text-4xl gradient-text">WorkWise</h1>
+    
         </Link>
 
         {/* Action Buttons */}
@@ -34,7 +35,7 @@ const Header = ({ user }) => {
             <Link href="/dashboard">
               <Button
                 variant="outline"
-                className="hidden md:inline-flex items-center gap-2"
+                className="hidden md:inline-flex items-center gap-2 hover:text-black hover:bg-white transition-all duration-300"
               >
                 <LayoutDashboard className="h-4 w-4" />
                 Industry Insights
@@ -48,8 +49,11 @@ const Header = ({ user }) => {
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button className="flex items-center gap-2">
+                  <div className="border-2 p-1 rounded-sm flex  justify-center items-center gap-2 hover:text-black hover:bg-white transition-all duration-300">
+
                   <StarsIcon className="h-4 w-4" />
-                  <span className="hidden md:block">Growth Tools</span>
+                  <span className="hidden md:block ">Growth Tools</span>
+                  </div>
                   <ChevronDown className="h-4 w-4" />
                 </Button>
               </DropdownMenuTrigger>

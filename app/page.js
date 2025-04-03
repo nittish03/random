@@ -95,7 +95,7 @@ export default function LandingPage() {
             {howItWorks.map((item, index) => (
               <div
                 key={index}
-                className="flex flex-col items-center text-center space-y-4"
+                className="flex flex-col items-center border-2 p-2 rounded-md py-8 text-center space-y-4"
               >
                 <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
                   {item.icon}
@@ -199,7 +199,7 @@ export default function LandingPage() {
               <Button
                 size="lg"
                 variant="secondary"
-                className="h-11 mt-5 animate-bounce"
+                className="h-11 mt-5 animate-bounce border-2"
               >
                 Start Your Journey Today <ArrowRight className="ml-2 h-4 w-4" />
               </Button>

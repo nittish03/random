@@ -194,14 +194,16 @@ const OnboardingForm = ({ industries }) => {
               )}
             </div>
 
-            <Button type="submit" className="w-full" disabled={updateLoading}>
+            <Button type="submit" className="w-full border-solid" disabled={updateLoading}>
               {updateLoading ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                   Saving...
                 </>
               ) : (
-                "Complete Profile"
+                <div className="border-1 p-2 rounded-sm hover:text-black hover:bg-white transition-all duration-300 ">
+                Complete Profile
+                </div>
               )}
             </Button>
           </form>

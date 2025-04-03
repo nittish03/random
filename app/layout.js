@@ -6,6 +6,7 @@ import Header from "../components/header";
 import { ThemeProvider } from "../components/theme-provider";
 import { dark } from "@clerk/themes";
 import { checkUser } from "../lib/checkUser"; // Import checkUser here
+import ParticleBackground from "../components/ParticleBackground"; 
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,6 +30,7 @@ export default async function RootLayout({ children }) {
             enableSystem
             disableTransitionOnChange
           >
+                      <ParticleBackground /> {/* Animated Particles */}
             <Header user={user} /> {/* Pass user data to Header */}
             <main className="min-h-screen">{children}</main>
             <Toaster richColors theme="dark" />

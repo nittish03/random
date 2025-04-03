@@ -33,6 +33,73 @@ body {
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
   }
+
+/* Animated Gradient Text */
+.gradient-text {
+  background: linear-gradient(90deg, #2563eb, #00d4ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradientAnimation 3s infinite alternate;
+}
+
+/* Button Styling */
+.button-primary {
+  padding: 12px 24px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 8px;
+  background-color: #2563eb;
+  color: white;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.button-primary:hover {
+  background-color: #00d4ff;
+  color: black;
+}
+
+/* Outline Button */
+.button-outline {
+  padding: 12px 24px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 8px;
+  border: 2px solid #00d4ff;
+  color: #00d4ff;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.button-outline:hover {
+  background: #00d4ff;
+  color: black;
+}
+/* Gradient Animated Text */
+/* Static Gradient Text */
+.gradient-text {
+  background: linear-gradient(90deg, #2563eb, #00d4ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+/* Smooth Gradient Animation */
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* Background Animation */
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+  
+
+  
   .dark {
     --background: 0 0% 0%; /* Black for dark theme */
     --foreground: 0 0% 100%; /* White for dark theme */
