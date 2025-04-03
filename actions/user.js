@@ -2,6 +2,7 @@
 
 import { db } from "../lib/prisma";
 import { auth } from "@clerk/nextjs/server";
+import { revalidatePath } from "next/cache";
 import { generateAIInsights } from "./dashboard";
 
 export async function updateUser(data) {
@@ -91,6 +92,6 @@ export async function getUserOnboardingStatus() {
     };
   } catch (error) {
     console.error("Error checking onboarding status:", error);
-    throw new Error("Failed to check onboarding status");
-  }
+    throw new Error("Failed to check onboarding status");
+ }
 }
