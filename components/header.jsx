@@ -26,7 +26,7 @@ const Header = ({ user }) => {
         <Link href="/">
         <h1 className="font-bold text-4xl gradient-text">WorkWise</h1>
     
-        </Link>
+        </Link> 
       <nav className="container h-16 flex items-center justify-between">
 
         {/* Action Buttons */}
