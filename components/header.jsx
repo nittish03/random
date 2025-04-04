@@ -37,11 +37,10 @@ const Header = ({ user }) => {
                 variant="outline"
                 className="hidden md:inline-flex items-center gap-2 hover:text-black hover:bg-white transition-all duration-300"
               >
-                <LayoutDashboard className="h-4 w-4" />
                 Course Generator
               </Button>
               <Button variant="ghost" className="md:hidden w-10 h-10 p-0">
-                <LayoutDashboard className="h-4 w-4" />
+
               </Button>
             </a>
             <Link href="/chat">
@@ -49,11 +48,9 @@ const Header = ({ user }) => {
                 variant="outline"
                 className="hidden md:inline-flex items-center gap-2 hover:text-black hover:bg-white transition-all duration-300"
               >
-                <LayoutDashboard className="h-4 w-4" />
                 Chat With Mentor
               </Button>
               <Button variant="ghost" className="md:hidden w-10 h-10 p-0">
-                <LayoutDashboard className="h-4 w-4" />
               </Button>
             </Link>
             <Link href="/guidance">
@@ -61,11 +58,10 @@ const Header = ({ user }) => {
                 variant="outline"
                 className="hidden md:inline-flex items-center gap-2 hover:text-black hover:bg-white transition-all duration-300"
               >
-                <LayoutDashboard className="h-4 w-4" />
                 Mentor Guidance
               </Button>
               <Button variant="ghost" className="md:hidden w-10 h-10 p-0">
-                <LayoutDashboard className="h-4 w-4" />
+
               </Button>
             </Link>
             <Link href="/dashboard">
@@ -73,7 +69,7 @@ const Header = ({ user }) => {
                 variant="outline"
                 className="hidden md:inline-flex items-center gap-2 hover:text-black hover:bg-white transition-all duration-300"
               >
-                <LayoutDashboard className="h-4 w-4" />
+
                 Industry Insights
               </Button>
               <Button variant="ghost" className="md:hidden w-10 h-10 p-0">
