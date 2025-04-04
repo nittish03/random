@@ -6,9 +6,9 @@ import dynamic from "next/dynamic";
 const Peer = dynamic(() => import("peerjs"), { ssr: false });
 
 const mentors = [
-  { id: "mentor1", name: "Vrinda", linkedin: "https://www.linkedin.com/in/vrinda-bindal-55b645349/" },
-  { id: "mentor2", name: "Ravi", linkedin: "https://www.linkedin.com/in/ravi-beniwal-342906274/" },
-  { id: "mentor3", name: "Nittish", linkedin: "https://www.linkedin.com/in/nittish-baboria/" },
+  { id: "mentor1", name: "Vrinda", linkedin: "https://www.linkedin.com/in/vrinda-bindal-55b645349/",Designation: "Software Engineer" },
+  { id: "mentor2", name: "Ravi", linkedin: "https://www.linkedin.com/in/ravi-beniwal-342906274/",Designation: "Reserach Intern" },
+  { id: "mentor3", name: "Nittish", linkedin: "https://www.linkedin.com/in/nittish-baboria/", Designation: "Businexx Aanlyst" },
 ];
 
 export default function VideoCall() {
@@ -71,7 +71,7 @@ export default function VideoCall() {
 
   return (
     <div className="min-h-screen bg-black mt-18 text-white flex flex-col items-center justify-center p-8">
-      <h1 className="text-3xl font-bold mb-4">🎥 Mentor-User Video Call</h1>
+      <h1 className="text-3xl font-bold mb-4"> Mentor-User Video Call</h1>
       <h3 className="text-lg mb-2">Your Peer ID: <b className="text-blue-400">{peerId}</b></h3>
       <p className="text-gray-400 mb-6">🔗 Share this ID to receive calls</p>
 
@@ -81,11 +81,11 @@ export default function VideoCall() {
         placeholder="Enter Peer ID to call/chat" 
         value={otherPeerId} 
         onChange={(e) => setOtherPeerId(e.target.value)} 
-        className="p-2 w-80 text-black rounded-md mb-4"
+        className="p-4 w-80 text-white rounded-2xl border-2 border-white"
       />
       <button 
         onClick={connectToPeer} 
-        className="p-2 bg-blue-600 hover:bg-blue-500 text-white rounded-md"
+        className="p-3 bg-blue-600 hover:bg-blue-500 text-white rounded-md mt-4"
       >
         💬 Start Chat
       </button>
@@ -94,7 +94,9 @@ export default function VideoCall() {
       <ul className="flex flex-wrap justify-center gap-4 mt-4">
         {mentors.map((mentor) => (
           <li key={mentor.id} className="p-4 border border-gray-600 rounded-lg w-64 text-center">
+            
             <h3 className="text-lg font-semibold">{mentor.name}</h3>
+            <h2 className="text-lg font-semibold">{mentor.Designation}</h2>
             <a 
               href={mentor.linkedin} 
               target="_blank" 

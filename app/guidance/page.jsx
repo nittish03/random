@@ -6,9 +6,9 @@ import dynamic from "next/dynamic";
 const Peer = dynamic(() => import("peerjs"), { ssr: false });
 
 const mentors = [
-  { id: "mentor1", name: "Vrinda", linkedin: "https://www.linkedin.com/in/vrinda-bindal-55b645349/" },
-  { id: "mentor2", name: "Ravi", linkedin: "https://www.linkedin.com/in/ravi-beniwal-342906274/" },
-  { id: "mentor3", name: "Nittish", linkedin: "https://www.linkedin.com/in/nittish-baboria/" },
+  { id: "mentor1", name: "Vrinda", linkedin: "https://www.linkedin.com/in/vrinda-bindal-55b645349/",Designation: "Software Engineer" },
+  { id: "mentor2", name: "Ravi", linkedin: "https://www.linkedin.com/in/ravi-beniwal-342906274/",Designation: "Reserach Intern" },
+  { id: "mentor3", name: "Nittish", linkedin: "https://www.linkedin.com/in/nittish-baboria/", Designation: "Businexx Aanlyst" },
 ];
 
 export default function VideoCall() {
@@ -57,7 +57,7 @@ export default function VideoCall() {
 
   return (
     <div className="text-center p-6 mt-20">
-      <h1 className="text-3xl font-bold mb-4">🎥 Mentor-User Video Call</h1>
+      <h1 className="text-3xl font-bold mb-4"> Mentor-User Video Call</h1>
       <h3 className="text-xl font-semibold">Your Peer ID: <b>{peerId}</b></h3>
       <p className="text-gray-600">🔗 Share this ID to receive calls</p>
 
@@ -81,6 +81,7 @@ export default function VideoCall() {
         {mentors.map((mentor) => (
           <li key={mentor.id} className="p-4 border rounded-lg shadow-lg w-80 text-center">
             <h3 className="text-xl font-bold">{mentor.name}</h3>
+            <h2 className="text-lg font-semibold">{mentor.Designation}</h2>
             <a 
               href={mentor.linkedin} 
               target="_blank" 
