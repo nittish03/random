@@ -57,7 +57,7 @@ export default function VideoCall() {
 
   return (
     <div className="text-center p-6 mt-20">
-      <h1 className="text-3xl font-bold mb-4">🎥 Mentor-User Video Call</h1>
+      <h1 className="text-3xl font-bold mb-4"> Mentor-User Video Call</h1>
       <h3 className="text-xl font-semibold">Your Peer ID: <b>{peerId}</b></h3>
       <p className="text-gray-600">🔗 Share this ID to receive calls</p>
 
