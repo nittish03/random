@@ -23,7 +23,7 @@ import {
 const Header = ({ user }) => {
   return (
     <header className="fixed top-0 w-full border-b bg-background/80 backdrop-blur-md z-50 supports-[backdrop-filter]:bg-background/60">
-      <nav className="container h-16 flex items-center justify-between">
+      <nav className="container h-16 flex items-center justify-center">
         <div className="flex justify-center items-center">
 
         <Link href="/">
