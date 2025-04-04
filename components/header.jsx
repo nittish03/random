@@ -27,7 +27,7 @@ const Header = ({ user }) => {
         <div className="flex justify-center items-center">
 
         <Link href="/">
-        <h1 className="font-bold text-4xl gradient-text px-2">WorkWise</h1>
+        <h1 className="font-bold text-3xl gradient-text px-2">WorkWise</h1>
     
         </Link> 
 
@@ -40,7 +40,7 @@ const Header = ({ user }) => {
             <a target="_blank" href="https://ai-course-generator-gamma-snowy.vercel.app/dashboard">
               <Button
                 variant="outline"
-                className="hidden md:inline-flex items-center gap-2 hover:text-black hover:bg-white transition-all duration-300"
+                className="hidden md:inline-flex text-xs items-center gap-2 hover:text-black hover:bg-white transition-all duration-300"
               >
                 <LayoutDashboard className="h-4 w-4" />
                 Course Generator
@@ -52,7 +52,7 @@ const Header = ({ user }) => {
             <Link href="/chat">
               <Button
                 variant="outline"
-                className="hidden md:inline-flex items-center gap-2 hover:text-black hover:bg-white transition-all duration-300"
+                className="hidden text-xs md:inline-flex items-center gap-2 hover:text-black hover:bg-white transition-all duration-300"
               >
                 <LayoutDashboard className="h-4 w-4" />
                 Chat With Mentor
@@ -64,19 +64,19 @@ const Header = ({ user }) => {
             <Link href="/guidance">
               <Button
                 variant="outline"
-                className="hidden md:inline-flex items-center gap-2 hover:text-black hover:bg-white transition-all duration-300"
+                className="hidden text-xs md:inline-flex items-center gap-2 hover:text-black hover:bg-white transition-all duration-300"
               >
                 <LayoutDashboard className="h-4 w-4" />
                 Mentor Guidance
               </Button>
-              <Button variant="ghost" className="md:hidden w-10 h-10 p-0">
+              <Button variant="ghost" className=" md:hidden w-10 h-10 p-0">
                 <LayoutDashboard className="h-4 w-4" />
               </Button>
             </Link>
             <Link href="/dashboard">
               <Button
                 variant="outline"
-                className="hidden md:inline-flex items-center gap-2 hover:text-black hover:bg-white transition-all duration-300"
+                className="hidden md:inline-flex text-xs items-center gap-2 hover:text-black hover:bg-white transition-all duration-300"
               >
                 <LayoutDashboard className="h-4 w-4" />
                 Industry Insights
@@ -90,10 +90,12 @@ const Header = ({ user }) => {
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button className="flex items-center gap-2">
-                  <div className="border-2 hover:scale-110 ease-in-out transition-all  duration-300 p-1 rounded-sm flex  justify-center items-center  gap-2 hover:text-black hover:bg-white transition-all duration-300">
+                  <div className="border-1 hover:scale-110 ease-in-out p-2 rounded-sm flex  justify-center items-center  gap-2 hover:text-black hover:bg-white transition-all duration-300">
 
                   <StarsIcon className="h-4 w-4" />
-                  <span className="hidden md:block ">Growth Tools</span>
+                  <span className="hidden md:block "><p className="text-xs">
+                  Growth Tools
+                    </p></span>
                   </div>
                   <ChevronDown className="h-4 w-4" />
                 </Button>
