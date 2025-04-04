@@ -133,7 +133,7 @@ const Header = ({ user }) => {
                   userButtonPopoverCard: "shadow-xl",
                   userPreviewMainIdentifier: "font-semibold",
                 },
-              }}
+              }} 
               afterSignOutUrl="/"
             />
           </SignedIn>
