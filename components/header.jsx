@@ -23,11 +23,11 @@ import {
 const Header = ({ user }) => {
   return (
     <header className="fixed top-0 w-full border-b bg-background/80 backdrop-blur-md z-50 supports-[backdrop-filter]:bg-background/60">
-      <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
         <Link href="/">
         <h1 className="font-bold text-4xl gradient-text">WorkWise</h1>
     
-        </Link>
+        </Link> 
+      <nav className="container h-16 flex items-center justify-between">
 
         {/* Action Buttons */}
         <div className="flex items-center space-x-2 md:space-x-4">
@@ -133,7 +133,7 @@ const Header = ({ user }) => {
                   userButtonPopoverCard: "shadow-xl",
                   userPreviewMainIdentifier: "font-semibold",
                 },
-              }}
+              }} 
               afterSignOutUrl="/"
             />
           </SignedIn>
