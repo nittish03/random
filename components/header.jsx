@@ -22,13 +22,14 @@ import {
 
 const Header = ({ user }) => {
   return (
-    <header className="fixed top-0 w-full border-b bg-background/80 backdrop-blur-md z-50 supports-[backdrop-filter]:bg-background/60">
-      <nav className="container w-full h-16 flex items-center justify-between">
-
+    <>
+    <header className="fixed flex justify-center items-center top-0 w-full border-b bg-background/80 backdrop-blur-md z-50 supports-[backdrop-filter]:bg-background/60">
         <Link href="/">
         <h1 className="font-bold text-3xl gradient-text px-2">WorkWise</h1>
     
         </Link> 
+      <nav className="container w-full h-16 flex items-center justify center">
+
         <div className="flex justify-center items-center">
 
         </div>
@@ -149,6 +150,8 @@ const Header = ({ user }) => {
 
       </nav>
     </header>
+    </>
+
   );
 };
 
